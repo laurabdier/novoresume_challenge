@@ -1,0 +1,29 @@
+version: "3"
+services:
+  web:
+    tty: true
+    container_name: react-front
+    build: ./react-front
+    volumes:
+      - './react-front:/app'
+      - '/app/node_modules'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - back
+  back:
+    container_name: back
+    build: ./api
+    volumes:
+      - './api:/app/'
+      - '/app/node_modules'
+    ports:
+      - "9007:9007"
+    depends_on:
+      - mongo
+    expose:
+      - "9007"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
