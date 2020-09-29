@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './navbarCSS.css'
 import useModal from "../auth/useModal";
 import Register from "../auth/register/registerComponent";
 import Login from "../auth/login/loginComponent";
@@ -10,8 +9,8 @@ import '../landing/landingCSS.css'
 const NavBar = () => {
   const {isShowing, toggle} = useModal();
   return (
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 rounded" >
+    <div style={styles.shadow}>
+      <nav class="navbar navbar-expand-lg shadow p-3 bg-white"  >
         <div class="container" style={styles.navBar}>
           <a class="navbar-brand logo" href="#" ><img src="/images/icons/logo.png" alt="" style={styles.logo}></img></a>
           <form class="form-inline">
@@ -39,7 +38,11 @@ const NavBar = () => {
 const styles = {
   navBar: {
     backgroundColor: "white",
-    width: "100%"
+    width: "100%",
+    margin: "0px !important"
+  },
+  shadow: {
+    backgroundColor: "#6A6AC4",
   },
   logo: {
     height: "75px"

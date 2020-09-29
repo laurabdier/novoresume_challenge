@@ -7,90 +7,169 @@ import './landingCSS.css'
 
 const Landing = () => {
 
-  const {isShowing, toggle} = useModal();
+  const { isShowing, toggle } = useModal();
 
   return (
-    <div>
-      <div className="container-fluid w-100" style={styles.container}>
-        <div classNameName="row w-100 col-12">
-          <div className="col-sm-12 col-md-6 col-lg-6 text-center">
-            <span className="col-sm-12 col-md-6 col-lg-6 text-center align-middle">
-              <h1 className="text-white" >A better, faster and smarter way of building your offers.</h1>
-              <p className="text-white"> Increase revenue and outshine competition. </p><br/>
-              <button type="button" className="btn btn-success btn-lg modal-toggle" style={styles.buttonFull}>Register Today</button>
-              <button type="button" className="btn btn-outline-success  btn-lg" style={styles.buttonHover}>Register Today</button>
-            </span>
+    <div className="">
+
+      <div className="row justify-content" style={{ backgroundColor: "#6A6AC4", padding: 40, paddingBottom: 50}}>
+        <div className="col-sm-5 offset-sm-1 ">
+          <div>
+            <p style={{ color: "white", fontSize: 36, fontWeight: 700}}>A better, faster and smarter way of building your offers.</p>
           </div>
-          <div className="col-sm-12 col-md-6 text-center">
-            <img className="img-fluid w-40" src="./images/background/header.png" alt="" style={styles.img}></img>
+          <div>
+            <p style={{ color: "white", fontSize: 18 }}>Increase revenue and outshine competition. All for the price of the coffee.</p>
+          </div>
+          <div className="col-sm-6" style={{ padding: 0 }}>
+            <button type="button" className="btn btn-success btn-lg modal-toggle" style={styles.buttonFull}>Register Today</button>
+          </div>
+        </div>
+        <div className="col-sm-5  d-none d-sm-block">
+          <img src="/images/background/header.png" style={{ height: 290, width: "auto" }} />
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: "#F5F5F5" }}>
+        <div className="row" >
+          <div className="col-12 offset-2" style={{ marginTop: 15, marginBottom: 15 }}>
+            <h1 style={{ fontSize: 18, fontWeight: "bold" }}>What do we do ? </h1>
+          </div>
+        </div>
+
+        <div className="row d-flex justify-content-center" >
+          <div className="col-3 text-center">
+            <div className="row">
+              <div className="col-12 " >
+                <img src="images/icons/offer.png" style={styles.img} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" style={{ marginTop: 20, marginBottom: 5 }}>
+                <h1 style={{ fontSize: 14, fontWeight: 600 }}>Amazing looking quotes</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" >
+                <p style={{ fontSize: 12 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae arcu vel nulla finibus feugiat.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-3 text-center">
+            <div className="row">
+              <div className="col-12 " >
+                <img src="images/icons/fast.png" style={styles.img} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" style={{ marginTop: 20, marginBottom: 5 }}>
+                <h1 style={{ fontSize: 14, fontWeight: 600 }}>Lighting fast quoting</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" >
+                <p style={{ fontSize: 12 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae arcu vel nulla finibus feugiat.</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-3 text-center">
+            <div className="row">
+              <div className="col-12 " >
+                <img src="images/icons/log.png" style={styles.img} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" style={{ marginTop: 20, marginBottom: 5 }}>
+                <h1 style={{ fontSize: 14, fontWeight: 600 }}>Live changelog</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" >
+                <p style={{ fontSize: 12 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae arcu vel nulla finibus feugiat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 text-center" style={{ marginTop: 15, marginBottom: 15 }}>
+            <button type="button" className="btn btn-success btn-lg" style={styles.buttonTryItOutToday}>Try it out Today</button>
           </div>
         </div>
       </div>
 
-      <div className="container-fluid w-100 cards-container">
-            <div className="row w-100 col-12">
-              <h1 className="text-black">What do we do ?</h1>
-            </div>
-            <div className="row w-100 col-12">
-                <div className="card col-sm-12 col-md-4 col-lg-4 center-elements" style={styles.row1card1}>
-                  <img src="./images/icons/offer.png" className="embed-responsive card-img-top img-whatwedo" alt="..." ></img>
-                    <div className="card-body">
-                      <h2>Amazing looking quotes </h2>
-                      <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum eu mauris eu tempor. Etiam vitae gravida tortor. Pellentesque tempus et felis at molestie. Nam in fermentum justo.</p>
-                    </div>
-                </div>
-
-                <div className="card col-sm-12 col-md-4 col-lg-4 center-elements" style={styles.row1card1}>
-                  <img src="./images/icons/fast.png" className="embed-responsive card-img-top img-whatwedo" alt="..."></img>
-                    <div className="card-body">
-                      <h2>Lighting fast quoting </h2>
-                      <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum eu mauris eu tempor. Etiam vitae gravida tortor. Pellentesque tempus et felis at molestie. Nam in fermentum justo.</p>
-                    </div>
-                </div>
-
-                <div className="card col-sm-12 col-md-4 col-lg-4 center-elements" style={styles.row1card1}>
-                  <img src="./images/icons/log.png" className="embed-responsive card-img-top img-whatwedo" alt="..." ></img>
-                    <div className="card-body">
-                      <h2>Live changelog</h2>
-                      <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum eu mauris eu tempor. Etiam vitae gravida tortor. Pellentesque tempus et felis at molestie. Nam in fermentum justo.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="row center-elements">
-              <button type="button" className="btn btn-primary btn-lg button-after-cards center-elements" style={styles.buttonTryItOutToday}>Try it out today !</button>
-            </div>
-
-            <div class="container-fluid w-100 cards-container2">
-              <div class="row w-100 col-12">
-                <h1 class="text-black">Recent blog posts</h1>
-              </div>
-              <div class="row w-100 col-12">
-                  <div class="card col-sm-12 col-md-4 col-lg-4 center-elements" style={styles.blogPost}>
-                    <img src="./images/background/image-1.png" class=".embed-responsive card-img-top img-blogposts" alt="..."></img>
-                      <div class="card-body">
-                        <h2>Promotional items </h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum eu mauris eu tempor. Etiam vitae gravida tortor. Pellentesque tempus et felis at molestie. Nam in fermentum justo.</p>
-                      </div>
-                  </div>
-
-                  <div class="card col-sm-12 col-md-4 col-lg-4 center-elements" style={styles.blogPost}>
-                    <img src="./images/background/image-2.png" class=".embed-responsive card-img-top img-blogposts" alt="..." ></img>
-                      <div class="card-body">
-                        <h2>Promotional items </h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum eu mauris eu tempor. Etiam vitae gravida tortor. Pellentesque tempus et felis at molestie. Nam in fermentum justo.</p>
-                      </div>
-                  </div>
-
-                  <div class="card col-sm-12 col-md-4 col-lg-4 center-elements" style={styles.blogPost}>
-                    <img src="./images/background/image-3.png" class=".embed-responsive card-img-top img-blogposts" alt="..." ></img>
-                      <div class="card-body">
-                        <h2>Promotional items</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum eu mauris eu tempor. Etiam vitae gravida tortor. Pellentesque tempus et felis at molestie. Nam in fermentum justo.</p>
-                      </div>
-                  </div>
+      <div style={{marginBottom: 200}}>
+        <div className="row">
+          <div className="col-12 offset-2" style={{ marginTop: 15, marginBottom: 15 }}>
+            <h1 style={{ fontSize: 18, fontWeight: "bold" }}>Recent blog posts </h1>
+          </div>
+        </div>
+        <div className="row d-flex justify-content-center">
+          <div className="col-3 text-left ">
+            <div className="row">
+              <div className="col-12" style={styles.img2}>
+                <img src="/images/background/image-1.png" style={{ width: 400, height: "auto" }} />
               </div>
             </div>
+            <div className="row">
+              <div className="col-12" style={{ marginTop: 20, marginBottom: 5 }}>
+                <h1 style={{ fontSize: 14, fontWeight: 600 }}>Promotional items</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-9" >
+                <p style={{ fontSize: 12 }}>You are probably familiar with free merchandise offered by companies at no cost at all.  This is because they know...</p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" >
+                <a href="/" style={{ fontSize: 12, color: "#00C8AA", marginTop: 5 }}>Read now...</a>
+              </div>
+            </div>
+          </div>
+          <div className="col-3 text-left">
+            <div className="row">
+              <div className="col-12" style={styles.img2}>
+                <img src="/images/background/image-3.png" style={{ width: 350, height: "auto" }} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" style={{ marginTop: 20, marginBottom: 5 }}>
+                <h1 style={{ fontSize: 14, fontWeight: 600 }}>Promotional items</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-9" >
+                <p style={{ fontSize: 12 }}>You are probably familiar with free merchandise offered by companies at no cost at all.  This is because they know...</p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" >
+                <a href="/" style={{ fontSize: 12, color: "#00C8AA", marginTop: 5 }}>Read now...</a>
+              </div>
+            </div>
+          </div>
+          <div className="col-3 text-left ">
+            <div className="row">
+              <div className="col-12" style={styles.img2}>
+                <img src="/images/background/image-2.png" style={{ width: 340, height: "auto" }} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" style={{ marginTop: 20, marginBottom: 5 }}>
+                <h1 style={{ fontSize: 14, fontWeight: 600 }}>Promotional items</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-9" >
+                <p style={{ fontSize: 12 }}>You are probably familiar with free merchandise offered by companies at no cost at all.  This is because they know...</p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12" >
+                <a href="/" style={{ fontSize: 12, color: "#00C8AA", marginTop: 5 }}>Read now...</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -113,7 +192,13 @@ const styles = {
     width: "200px"
   },
   img: {
-    width: "80%"
+    width: 50,
+    height: 50
+  },
+  img2: {
+    height: 200,
+    width: 300,
+    overflow: "hidden"
   },
   row1card1: {
     backgroundColor: "#E1E1E1",
@@ -123,7 +208,9 @@ const styles = {
     backgroundColor: "#00C8AA",
     color: "white",
     width: "200px",
-    borderColor: "#00C8AA"
+    borderColor: "#00C8AA",
+    marginTop: 30,
+    marginBottom: 15
   },
   blogPost: {
     border: "none"
