@@ -7,7 +7,7 @@ import LandingPage from './pages/landing';
 import ProductsPage from './pages/products';
 
 const routes = {
-  '/': () => <Landing />,
+  '/': () => <LandingPage />,
   '/products': () => <ProductsPage />
 };
 
