@@ -36,10 +36,10 @@ const ModalLogin = () => {
                   <input type="text" id="password" style={styles.signUpInput} onChange={event => setPassword(event.target.value)}></input>
                 </div>
                 <div className="row">
-                  <button type="button" onClick={getLonginInfo}>Login</button>
+                  <button type="button" onClick={getLonginInfo} style={styles.buttonLogin}>Login</button>
                 </div>
-                <div className="row">
-                  <a data-toggle="modal" href="#exampleModal" data-target="#exampleModal">Already have an account? Sign In</a>
+                <div className="row justify-content-center">
+                  <a data-toggle="modal" href="#exampleModal" data-target="#exampleModal" style={styles.signUp}>Already have an account? Sign In</a>
                 </div>
               </div>
             </div>
@@ -64,9 +64,23 @@ const styles = {
     backgroundColor: "#E1E1E1",
     border: "none",
     width: "100%",
+    height: 30
+  },
+  buttonLogin: {
+    borderRadius: 5,
+    backgroundColor: "#00C8AA",
+    border: "none",
+    width: "100%",
     height: 30,
-
-  }
+    marginTop: 30,
+    color: "white"
+},
+signUp: {
+    fontSize: 10, 
+    textAlign: "center", 
+    marginTop: 20,
+    marginBottom: 25
+}
 }
 
 export default ModalLogin;
