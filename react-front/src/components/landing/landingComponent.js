@@ -205,6 +205,7 @@ const styles = {
     border: "none"
   },
   buttonTryItOutToday: {
+    fontSize: 14,
     backgroundColor: "#00C8AA",
     color: "white",
     width: "200px",
