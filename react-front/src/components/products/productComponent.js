@@ -15,7 +15,7 @@ const Product = ( {product, setProduct} ) => {
                 <div className="col-7" style={styles.img2}>
                     <img className="rounded" src={product.image} style={{ width: 150, height: "auto" }} />
                 </div>
-                <div className="col-3 content-justify-left" style={styles.price}>
+                <div className="col-3 content-justify-center" style={styles.price}>
                     <div className="row">
                         <div className="col-12 " >
                             <h1 style={{ fontSize: 20, fontWeight: 650 }}>{product.price} $</h1>
