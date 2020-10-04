@@ -1,22 +1,72 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 
-import '../../landing/landingCSS.css'
 
-const Login = ({ isShowing, hide }) => isShowing ? (
-    <React.Fragment>
-      <div className="overlay">
-        <div className="wrapper">
-          <div className="modale">
-            <button type="button" className="close" onClick={hide}>
-              <span>&times;</span>
-            </button>
-            <h1>Et voici la modale LOGIN</h1>
 
+const ModalLogin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const getLonginInfo = (event) => {
+    console.log("email : ", email);
+    console.log("password :", password)
+  }
+
+  return (
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content" style={{ borderRadius: 20 }}>
+          <div className="body">
+            <div className="container-fluid">
+              <div className="col-10 offset-1">
+                <div className="row">
+                  <div class="modal-body text-center">
+                    <h1 style={{ fontSize: 18, fontWeight: "bold" }}>Sign In</h1>
+                  </div>
+                </div>
+                <div className="row">
+                  <p>Email</p>
+                </div>
+                <div className="row">
+                  <input type="text" id="email" style={styles.signUpInput} onChange={event => setEmail(event.target.value)}></input>
+                </div>
+                <div className="row">
+                  <p>Password</p>
+                </div>
+                <div className="row">
+                  <input type="text" id="password" style={styles.signUpInput} onChange={event => setPassword(event.target.value)}></input>
+                </div>
+                <div className="row">
+                  <button type="button" onClick={getLonginInfo}>Login</button>
+                </div>
+                <div className="row">
+                  <a data-toggle="modal" href="#exampleModal" data-target="#exampleModal">Already have an account? Sign In</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </React.Fragment>
-) : null;
+    </div>
+  )
+};
 
-export default Login;
+const styles = {
+  modalBox: {
+    borderRadius: 75,
+    width: 300
+  },
+  signUpLabel: {
+    marginBottom: "none",
+    height: 30
+  },
+  signUpInput: {
+    borderRadius: 5,
+    backgroundColor: "#E1E1E1",
+    border: "none",
+    width: "100%",
+    height: 30,
+
+  }
+}
+
+export default ModalLogin;
