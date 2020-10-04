@@ -1,74 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Product from './productComponent';
 
-const products = [{
-    id: 1,
-    name: "Dark Almond & Orange",
-    slogan: "DARK, CRUNCHY & SWEET",
-    description: "Crunchy roasted pieces of Californian almonds and sweet orange peel, coated in 100% sustainably sourced cocoa. The perfect balance between dark and sweet chocolate. Enjoy!",
-    price: "4.99$",
-    quantity: 5
-},
-{
-    id: 2,
-    name: "Alpine Milk Chocolate",
-    slogan: "A TRUE PEAK OF TASTE.",
-    description: "The name gives it away: this is a chocolate that reaches loy  heights. A special conching process gives this mixture of Alpine milk and cocoa its characteristic caramel and honey a vour. No wonder that some people abseil ohome with this bar. ",
-    price: "3.99$",
-    quantity: 4
-},
-{
-    id: 3,
-    name: "Cocoa Mousse",
-    slogan: "FAMOUSSELY TASTY",
-    description: "f you can’t believe your eyes when you see the extra large pieces of our Cocoa Mousse bar, you’ll just have to trust in your taste. The lightly whipped cocoa mousse blends harmoniously with the hints of honey and caramel in our Alpine milk chocolate.",
-    price: "3.49$",
-    quantity: 0
-},
-{
-    id: 4,
-    name: "Cornflakes",
-    slogan: "THE CHOCOLATY OF CORNFLAKES. ",
-    description: "RITTER SPORT Cornakes gives you breakfast around the clock with crispy cornakes in creamy chocolate. The akes are produced and selected according to strict quality standards: aer all, breakfast is the most important meal of the day.",
-    price: "3.99$",
-    quantity: 0
-},
-{
-    id: 1,
-    name: "Dark Almond & Orange",
-    slogan: "DARK, CRUNCHY & SWEET",
-    description: "Crunchy roasted pieces of Californian almonds and sweet orange peel, coated in 100% sustainably sourced cocoa. The perfect balance between dark and sweet chocolate. Enjoy!",
-    price: "4.99$",
-    quantity: 5
-},
-{
-    id: 2,
-    name: "Alpine Milk Chocolate",
-    slogan: "A TRUE PEAK OF TASTE.",
-    description: "The name gives it away: this is a chocolate that reaches loy  heights. A special conching process gives this mixture of Alpine milk and cocoa its characteristic caramel and honey a vour. No wonder that some people abseil ohome with this bar. ",
-    price: "3.99$",
-    quantity: 4
-},
-{
-    id: 3,
-    name: "Cocoa Mousse",
-    slogan: "FAMOUSSELY TASTY",
-    description: "f you can’t believe your eyes when you see the extra large pieces of our Cocoa Mousse bar, you’ll just have to trust in your taste. The lightly whipped cocoa mousse blends harmoniously with the hints of honey and caramel in our Alpine milk chocolate.",
-    price: "3.49$",
-    quantity: 0
-},
-{
-    id: 4,
-    name: "Cornflakes",
-    slogan: "THE CHOCOLATY OF CORNFLAKES. ",
-    description: "RITTER SPORT Cornakes gives you breakfast around the clock with crispy cornakes in creamy chocolate. The akes are produced and selected according to strict quality standards: aer all, breakfast is the most important meal of the day.",
-    price: "3.99$",
-    quantity: 0
+
+const downloadPDF = (event) => {
+   // event.preventDefault();
+    console.log("event : ", event)
 }
-]
 
 
 const Products = () => {
+    const [productList, setProductList] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:9007/product/").then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('error on getting products');
+        }).then(function (jsonResponse) {
+            setProductList(jsonResponse);
+        });
+    }, []);
+    
+
     return (
         <div>
             <div className="row">
@@ -82,13 +35,16 @@ const Products = () => {
                 </div>
             </div>
             <div className="row">
-            <div className="col-10 offset-1" >
-                <div className="row d-flex justify-content-center" >
-                    {products.map(Product)}
+                <div className="col-10 offset-1" >
+                    <div className="row d-flex justify-content-center" >
+                        
+                        {
+                            productList.length ? productList.map(productList => <Product key={productList.id} product= {productList} setProduct={setProductList}/>) : null
+                        }
+                    </div>
                 </div>
             </div>
-            </div>
-            
+
 
             <div className="row" style={{ marginTop: 30 }}>
                 <div className="col-10 offset-1" style={styles.titlebox}>
@@ -154,7 +110,7 @@ const Products = () => {
                             <h1 style={{ fontSize: 24, fontWeight: 700, color: "white" }}>Step 3: Generate Offer</h1>
                         </div>
                         <div className="col-2 text-center">
-                            <button className="text-center" style={styles.buttonPdf}>Download PDF</button>
+                            <button className="text-center" onClick={() => downloadPDF()} style={styles.buttonPdf}>Download PDF</button>
                         </div>
                     </div>
                 </div>
