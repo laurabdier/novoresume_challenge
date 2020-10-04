@@ -1,32 +1,32 @@
 import React from 'react';
 
 import useModal from "../auth/useModal";
-import Register from "../auth/register/registerComponent";
-import Login from "../auth/login/loginComponent";
-import '../landing/landingCSS.css'
 
 
 const NavBar = () => {
-  const {isShowing, toggle} = useModal();
+  const {
+    isShowing: isLoginFormShowed,
+    toggle: toggleLoginForm
+  } = useModal();
+
+  const {
+    isShowing: isRegistrationFormShowed,
+    toggle: toggleRegistrationForm
+  } = useModal();
+
   return (
     <div style={styles.shadow}>
       <nav class="navbar navbar-expand-lg shadow p-3 bg-white"  >
         <div class="container" style={styles.navBar}>
           <a class="navbar-brand logo" href="#" ><img src="/images/icons/logo.png" alt="" style={styles.logo}></img></a>
           <form class="form-inline">
-            <div className="modal-button">
-              <button class="btn btn-outline mr-sm-2 button-modal" type="button" onClick={toggle} style={styles.buttonRegister} >Register</button>
-              <Register
-                isShowing={isShowing}
-                hide={toggle}
-              />
+            <div className="modalButtonClass">
+              <button class="btn btn-outline mr-sm-2 button-modal" type="button" data-toggle="modal" data-target="#exampleModal"  style={styles.buttonRegister} >Register</button>
+              
             </div>
             <div className="modal-button">
-                <button class="btn btn-outline-secondary mr-sm-2 button-modal" onClick={toggle} type="button" style={styles.buttonLogin}>Sign In</button>
-                <Login
-                  isShowing={isShowing}
-                  hide={toggle}
-                />
+              <button class="btn btn-outline-secondary mr-sm-2 button-modal" type="button" data-toggle="modal" data-target="#loginModal" style={styles.buttonLogin}>Sign In</button>
+
             </div>
           </form>
         </div>
